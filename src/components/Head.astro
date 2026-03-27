@@ -8,45 +8,69 @@ interface Props {
 }
 
 const {
-  title = "Expense Tracker | Solusi Keuangan Kamu!",
-  description = "Aplikasi pencatatan keuangan yang cepat, sederhana, dan efisien. Kelola pengeluaran harianmu tanpa ribet.",
-  image = "/og-cover.png", // Pastikan file ini ada di folder public/
+  title = "ExpenseTracker | Kelola Uang Lebih Tenang, Wujudkan Impian",
+  description = "Aplikasi pencatatan keuangan pribadi yang simpel, cepat, dan aman. Atur budget harian, pantau pengeluaran, dan capai target finansial Anda hari ini.",
+  image = "/og-cover.png",
   noindex = false,
 } = Astro.props;
 
-// Membuat URL absolut untuk canonical dan social media
-// Pastikan "site" sudah diisi di astro.config.mjs
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL(image, Astro.site);
+// Mengambil URL absolut. Pastikan 'site' di config sudah benar (misal: https://expensetracker.id)
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://expensetracker.id",
+);
+const socialImageURL = new URL(
+  image,
+  Astro.site || "https://expensetracker.id",
+);
 ---
 
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
 <link rel="canonical" href={canonicalURL} />
+<meta
+  name="google-site-verification"
+  content="VdanyLXBh8xtrLoBDI1BdqqbDduXuvjlIya7OKOLhGY"
+/>
 
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="theme-color" content="#0f172a" />
-
-<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+<meta name="theme-color" content="#0e8a5d" />
+<meta
+  name="robots"
+  content={noindex
+    ? "noindex, nofollow"
+    : "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}
+/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
 <link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
   rel="stylesheet"
+  media="print"
+  onload="this.media='all'"
 />
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+</noscript>
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialImageURL} />
+<meta property="og:locale" content="id_ID" />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
@@ -60,10 +84,10 @@ const socialImageURL = new URL(image, Astro.site);
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Expense Tracker",
+    "name": "ExpenseTracker",
     "operatingSystem": "Web",
     "applicationCategory": "FinanceApplication",
-    "description": "Aplikasi pencatatan keuangan yang cepat, sederhana, dan efisien.",
+    "description": "Solusi cerdas kelola keuangan pribadi dengan pencatatan otomatis dan analitik visual.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -71,8 +95,13 @@ const socialImageURL = new URL(image, Astro.site);
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "100"
+      "ratingValue": "4.9",
+      "ratingCount": "1250"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Wira Ananda",
+      "url": "https://wiraananda.vercel.app/"
     }
   }
 </script>

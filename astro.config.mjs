@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  site: "https://expensetracker.vercel.app",
+  site: "https://expensetracker-system.vercel.app",
   integrations: [sitemap(), react()],
   vite: {
     plugins: [tailwindcss()],
