@@ -17,11 +17,11 @@ const {
 // Mengambil URL absolut. Pastikan 'site' di config sudah benar (misal: https://expensetracker.id)
 const canonicalURL = new URL(
   Astro.url.pathname,
-  Astro.site || "https://expensetracker.id",
+  Astro.site || "https://expensetracker-system.vercel.app",
 );
 const socialImageURL = new URL(
   image,
-  Astro.site || "https://expensetracker.id",
+  Astro.site || "https://expensetracker-system.vercel.app",
 );
 ---
 
